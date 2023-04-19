@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "value": "${SERVICE_API_NAME}"
+    },
+    "location": {
+      "value": "${AZURE_LOCATION}"
+    },
+    "applicationInsightsName": {
+      "value": "${APPLICATIONINSIGHTS_NAME}"
+    },
+    "bearerToken": {
+      "value": "${BEARER_TOKEN}"
+    },
+    "containerAppsEnvironmentName": {
+      "value": "${AZURE_CONTAINER_ENVIRONMENT_NAME}"
+    },
+    "containerRegistryName": {
+      "value": "${AZURE_CONTAINER_REGISTRY_NAME}"
+    },
+    "datastore": {
+      "value": "${DATASTORE}"
+    },
+    "imageName": {
+      "value": "${SERVICE_API_IMAGE_NAME}"
+    },
+    "openAiApiKey": {
+      "value": "${OPENAI_API_KEY}"
+    },
+    "redisContainerPort": {
+      "value": "${REDIS_CONTAINER_PORT=80}"
+    },
+    "redisHost": {
+      "value": "${REDIS_HOST}"
+    },
+    "redisPassword": {
+      "value": "${REDIS_PASSWORD}"
+    },
+    "redisPort": {
+      "value": "${REDIS_PORT=6379}"
+    }
+  }
+}

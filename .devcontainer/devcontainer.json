@@ -1,51 +1,48 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-	"name": "FastAPI",
+    "name": "Azure Developer CLI",
     "build": {
-		"context": ".",
-        "dockerfile": "Dockerfile"
-    },
-
-	"features": {
-		"ghcr.io/devcontainers/features/docker-from-docker:1": {
-            "version": "20.10"
+        "dockerfile": "Dockerfile",
+        "args": {
+            "VARIANT": "bullseye",
+            "VERSION": "3.10"
         }
-	},
-
-    "customizations": {
-		// Configure properties specific to VS Code.
-		"vscode": {
-			// Set *default* container specific settings.json values on container create.
-			"settings": {
-				"[python]": {
-					"editor.formatOnType": true,
-					"editor.formatOnSave": true
-				}
-			},
-			// Add the IDs of extensions you want installed when the container is created.
-			"extensions": [
-				"ms-python.python",
-				"GitHub.copilot-nightly",
-                "ms-azuretools.vscode-docker"
-			]
-		}
-	},
-
-    "forwardPorts": [
-        8000,
-		6379
-    ],
-
-	"hostRequirements": {
-        "memory": "8gb"
     },
-
-	"postAttachCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh"
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip3 install --user -r requirements.txt",
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli": {
+            "version": "2.30.0"
+        },
+        "ghcr.io/devcontainers/features/docker-from-docker:1": {
+            "version": "20.10"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {
+            "version": "2"
+        },
+        "ghcr.io/devcontainers-contrib/features/poetry": {
+            "version": "1.4.1"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.azure-dev",
+                "ms-azuretools.vscode-bicep",
+                "ms-azuretools.vscode-docker",
+                "ms-vscode.vscode-node-azure-pack",
+                "ms-vscode.js-debug",
+                "esbenp.prettier-vscode",
+                "eg2.vscode-npm-script",
+                "dbaeumer.vscode-eslint",
+                "ms-azuretools.vscode-azurefunctions"
+            ]
+        }
+    },
+    "forwardPorts": [
+        6379,
+        8000
+    ],
+    "postAttachCommand": ".devcontainer/setup.sh",
+    "remoteUser": "vscode",
+    "hostRequirements": {
+        "memory": "8gb"
+    }
 }

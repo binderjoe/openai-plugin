@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName": {
+      "value": "${AZURE_ENV_NAME}"
+    },
+    "location": {
+      "value": "${AZURE_LOCATION}"
+    },
+    "apiContainerAppName": {
+      "value": "${SERVICE_API_NAME}"
+    },
+    "apiImageName": {
+      "value": "${SERVICE_API_IMAGE_NAME}"
+    },
+    "bearerToken": {
+      "value": "${BEARER_TOKEN=footoken}"
+    },
+    "containerAppsEnvironmentName": {
+      "value": "${AZURE_CONTAINER_ENVIRONMENT_NAME}"
+    },
+    "containerRegistryName": {
+      "value": "${AZURE_CONTAINER_REGISTRY_NAME}"
+    },
+    "datastore": {
+      "value": "${DATASTORE=redis}"
+    },
+    "logAnalyticsName": {
+      "value": "${AZURE_LOG_ANALYTICS_NAME}"
+    },
+    "openAiApiKey": {
+      "value": "${OPENAI_API_KEY}"
+    },
+    "redisContainerAppName": {
+      "value": "${SERVICE_REDIS_NAME}"
+    },
+    "redisContainerPort": {
+      "value": "${REDIS_CONTAINER_PORT=80}"
+    },
+    "redisHost": {
+      "value": "${REDIS_HOST}"
+    },
+    "redisImageName": {
+      "value": "${SERVICE_REDIS_IMAGE_NAME}"
+    },
+    "redisPassword": {
+      "value": "${REDIS_PASSWORD}"
+    },
+    "redisPort": {
+      "value": "${REDIS_PORT=6379}"
+    },
+    "resourceGroupName": {
+      "value": "${AZURE_RESOURCE_GROUP}"
+    }
+  }
+}
