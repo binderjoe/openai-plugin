@@ -10,10 +10,10 @@
     },
     "api": {
         "type": "openapi",
-        "url": "https://minsa110-cuddly-palm-tree-69gr759q74q24pw4-8000.preview.app.github.dev/.well-known/openapi.yaml",
+        "url": "https://binderjoe-humble-potato-5j9765j95524467-8000.preview.app.github.dev/.well-known/openapi.yaml",
         "is_user_authenticated": "false"
     },
-    "logo_url": "https://minsa110-cuddly-palm-tree-69gr759q74q24pw4-8000.preview.app.github.dev/.well-known/logo.png",
+    "logo_url": "https://binderjoe-humble-potato-5j9765j95524467-8000.preview.app.github.dev/.well-known/logo.png",
     "contact_email": "example@company.com",
     "legal_info_url": "https://example.com/legal"
 }

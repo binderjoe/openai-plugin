@@ -4,7 +4,7 @@ info:
   description: Todo app for managing your tasks on ChatGPT
   version: 1.0.0
   servers:
-    - url: https://minsa110-laughing-eureka-979q457rx6q3p954-8000.preview.app.github.dev
+    - url: https://binderjoe-humble-potato-5j9765j95524467-8000.preview.app.github.dev
 paths:
   /todos:
     post:
