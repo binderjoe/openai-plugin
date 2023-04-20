@@ -1,35 +1,27 @@
 #!/bin/sh
-set -eu
+set -e
 
-# # Set the plugin hostname for Codespaces
-# # Check if CODESPACES environment variable is set to true
-# if [ "$CODESPACES" = "true" ]; then
-#   # If CODESPACES is true and PLUGIN_HOSTNAME is undefined or empty, set PLUGIN_HOSTNAME
-#   if [ -z "$PLUGIN_HOSTNAME" ]; then
-#     # Check if CODESPACE_NAME and GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN are set
-#     if [ -z "$CODESPACE_NAME" ] || [ -z "$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN" ]; then
-#       echo "CODESPACE_NAME and/or GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN environment variables are not set."
-#       exit 1
-#     fi
-#     # Set PLUGIN_HOSTNAME to the expanded version of the URL
-#     PLUGIN_HOSTNAME="https://$CODESPACE_NAME-8000.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"
-#   fi
-# else
-#   # If CODESPACES is not true, check if PLUGIN_HOSTNAME is set
-#   if [ -z "$PLUGIN_HOSTNAME" ]; then
-#     echo "PLUGIN_HOSTNAME environment variable is not set."
-#     exit 1
-#   fi
-# fi
-
-# Set the plugin hostname for Azure in the azd environment
-if [ "$SERVICE_API_URI" = "true" ]; then
-  PLUGIN_HOSTNAME=$(echo "$SERVICE_API_URI" | sed 's/^"//' | sed 's/"$//')
-  echo "PLUGIN_HOSTNAME environment variable is successfully set to Azure SERVICE_API_URI."
+# Check if CODESPACES environment variable is set to true
+# Provide a default value of "false" if CODESPACES is not set
+if [ "${CODESPACES:-false}" = "true" ]; then
+  # If CODESPACES is true and PLUGIN_HOSTNAME is undefined or empty, set PLUGIN_HOSTNAME
+  if [ -z "$PLUGIN_HOSTNAME" ]; then
+    # Check if CODESPACE_NAME and GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN are set
+    if [ -z "$CODESPACE_NAME" ] || [ -z "$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN" ]; then
+      echo "CODESPACE_NAME and/or GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN environment variables are not set."
+      exit 1
+    fi
+    # Set PLUGIN_HOSTNAME to the expanded version of the URL
+    PLUGIN_HOSTNAME="https://$CODESPACE_NAME-8000.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"
+  fi
 else
-  echo "PLUGIN_HOSTNAME environment variable is not set."
-  exit 1
+  # If CODESPACES is not true, check if PLUGIN_HOSTNAME is set
+  if [ -z "$PLUGIN_HOSTNAME" ]; then
+    echo "PLUGIN_HOSTNAME environment variable is not set."
+    exit 1
+  fi
 fi
+
 
 # Input JSON file
 json_input_file="./.well-known/ai-plugin.json"
